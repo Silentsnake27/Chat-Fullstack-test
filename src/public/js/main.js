@@ -13,6 +13,7 @@ $(function () {
   const $nickname = $('#nickname');
 
   const $users = $('#usernames');
+  const $alert = $('#alert');
 
   $nickForm.submit((e) => {
     e.preventDefault();
@@ -20,6 +21,12 @@ $(function () {
       if (data) {
         $('#nickWrap').hide();
         $('#contentWrap').show();
+        setTimeout(() => {
+          $alert.fadeIn('slow');
+          setTimeout(() => {
+            $alert.fadeOut('slow');
+          },10000);
+        },5000);
       } else {
         $nickError.html(`
           <div class="alert alert-danger">
